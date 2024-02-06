@@ -105,7 +105,7 @@ export function Map() {
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=current&appid=a0b75def9203ad25b02cc52c590183b4`).then(a=>a.json()).then(b=>{
                 let bb=b.weather[0].icon
                 setEcon(bb)
-                console.log(econ)
+                // console.log(econ)
             })
             responseDiv.style.display = "none";
             response.innerText = JSON.stringify(result, null, 2);
