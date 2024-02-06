@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 // import '../css/map.css'
 // import mapo from '../data/data.json'
 // import { conx } from './ctxt';
@@ -9,8 +9,9 @@ export function Map() {
     let geocoder;
     let responseDiv;
     let response;
-    // let latitude;
-    // let longitude;
+    let latitude;
+    let longitude;
+    const [econ,setEcon]=useState(null);
     // const myco=useContext(conx)
 
     const initMap = useCallback(() => {
@@ -64,8 +65,10 @@ export function Map() {
           map.controls[window.google.maps.ControlPosition.LEFT_TOP].push(responseDiv);
           marker = new window.google.maps.Marker({
             map,
-            draggable:false
+            draggable:false,
+            icon:`https://openweathermap.org/img/wn/${econ}.png`
           });
+          console.log(econ)
           map.addListener("click", (e) => {
             geocode({ location: e.latLng });
           });
@@ -94,11 +97,16 @@ export function Map() {
             // map=new window.google.maps.MapO
             marker.setPosition(results[0].geometry.location);
             marker.setMap(map);
-            // let loca=JSON.stringify(results[0].geometry.location)
-            // latitude=loca.split(':')[1].split(',')[0]
-            // longitude=loca.split(':')[2].split('}')[0]
+            let loca=JSON.stringify(results[0].geometry.location)
+            latitude=loca.split(':')[1].split(',')[0]
+            longitude=loca.split(':')[2].split('}')[0]
             // console.log(latitude)
             // console.log(longitude)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=current&appid=a0b75def9203ad25b02cc52c590183b4`).then(a=>a.json()).then(b=>{
+                let bb=b.weather[0].icon
+                setEcon(bb)
+                console.log(econ)
+            })
             responseDiv.style.display = "none";
             response.innerText = JSON.stringify(result, null, 2);
             // console.log(jsonString)
@@ -114,9 +122,9 @@ export function Map() {
       }, [initMap]);
     return(
         <>
-            <h1>GEOCODE</h1>
+            <h1 style={{textAlign:'center'}}>GEOCODE</h1>
             <h3 style={{display:'block',textAlign:'center'}}>※입력 후 Find 버튼을 클릭해주세요. 엔터키는 무효합니다.※</h3>
-            <div id="map"></div>
+            <div id="map" style={{width:'300px',height:'300px',margin:'0 auto'}}></div>
             {/* <button className='button-primary bottom' onClick={shar}>Share</button> */}
         </>
     )
