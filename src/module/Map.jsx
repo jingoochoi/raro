@@ -1,16 +1,17 @@
-import { useCallback, useContext, useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useCallback, useEffect } from 'react';
 // import '../css/map.css'
 // import mapo from '../data/data.json'
-import { conx } from './ctxt';
+// import { conx } from './ctxt';
 export function Map() {
     let map;
     let marker;
     let geocoder;
     let responseDiv;
     let response;
-    let latitude;
-    let longitude;
-    const myco=useContext(conx)
+    // let latitude;
+    // let longitude;
+    // const myco=useContext(conx)
 
     const initMap = useCallback(() => {
         map = new window.google.maps.Map(document.getElementById("map"), {
@@ -93,9 +94,9 @@ export function Map() {
             // map=new window.google.maps.MapO
             marker.setPosition(results[0].geometry.location);
             marker.setMap(map);
-            let loca=JSON.stringify(results[0].geometry.location)
-            latitude=loca.split(':')[1].split(',')[0]
-            longitude=loca.split(':')[2].split('}')[0]
+            // let loca=JSON.stringify(results[0].geometry.location)
+            // latitude=loca.split(':')[1].split(',')[0]
+            // longitude=loca.split(':')[2].split('}')[0]
             // console.log(latitude)
             // console.log(longitude)
             responseDiv.style.display = "none";
