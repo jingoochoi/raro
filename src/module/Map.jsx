@@ -4,7 +4,7 @@ import '../css/map.css'
 // import { Loader } from "@googlemaps/js-api-loader"
 import { useCallback, useEffect } from 'react';
 import mapo from '../data/data.json'
-import { Marker } from 'react-naver-maps';
+// import { Marker } from 'react-naver-maps';
 // import { List } from './List';
 export function Map() {
   let map,infoWindow,marker,pos;
