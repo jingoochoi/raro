@@ -1,5 +1,5 @@
 // import { GoogleMap, useGoogleMap } from '@react-google-maps/api';
-import '../css/map.css'
+// import '../css/map.css'
 // import { GoogleMap } from '@react-google-maps/api';
 // import { Loader } from "@googlemaps/js-api-loader"
 import { useCallback, useEffect } from 'react';

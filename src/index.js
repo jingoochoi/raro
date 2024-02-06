@@ -5,6 +5,7 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import { conx } from './module/ctxt';
 import { Header } from './layout/Header';
+import { Main } from './layout/Main';
 function App() {
   const[mode,setMode]=useState('map')
   const chan=(a)=>{
@@ -13,6 +14,7 @@ function App() {
   return(
     <conx.Provider value={{mode,chan}}>
       <Header></Header>
+      <Main></Main>
     </conx.Provider>
   )
 }
