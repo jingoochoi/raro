@@ -7,8 +7,9 @@ import mapo from '../data/data.json'
 // import { Marker } from 'react-naver-maps';
 // import { List } from './List';
 export function Map() {
-  let map,infoWindow,marker,pos;
+  let map,infoWindow,marker;
   const initMap = useCallback(() => {
+    let map,pos
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -43,7 +44,7 @@ export function Map() {
       // );
       // infoWindow.open(map);
     }
-  }, []);
+  }, [infoWindow]);
   const eqfeed_callback = function (results) {
     results=mapo
     for (let i = 0; i < results.length; i++) {
