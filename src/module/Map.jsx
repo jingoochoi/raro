@@ -3,13 +3,13 @@ import '../css/map.css'
 // import { GoogleMap } from '@react-google-maps/api';
 // import { Loader } from "@googlemaps/js-api-loader"
 import { useCallback, useEffect } from 'react';
-import mapo from '../data/data.json'
+// import mapo from '../data/data.json'
 // import { Marker } from 'react-naver-maps';
 // import { List } from './List';
 export function Map() {
-  let map,infoWindow,marker;
+  let infoWindow;
   const initMap = useCallback(() => {
-    let map,pos
+    let map,pos,marker;
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -21,6 +21,12 @@ export function Map() {
           // infoWindow.setPosition(pos);
           // eqfeed_callback()
           map.setCenter(pos);
+          marker=new window.google.maps.Marker({
+            position: pos,
+            map: map,
+            // title: results[i].name,
+            // icon:'url'
+          });
         },
         () => {
           handleLocationError(true, infoWindow, map.getCenter());
@@ -45,32 +51,12 @@ export function Map() {
       // infoWindow.open(map);
     }
   }, [infoWindow]);
-  const eqfeed_callback = function (results) {
-    results=mapo
-    for (let i = 0; i < results.length; i++) {
-      const coords = results[i].lat;
-      const coords2 = results[i].long;
-      const latLng = new window.google.maps.LatLng(coords, coords2);
   
-      marker=new window.google.maps.Marker({
-        position: latLng,
-        map: map,
-        title: results[i].name,
-        // icon:'url'
-      });
-      infoWindow=new window.google.maps.InfoWindow({
-        content:results[i].name,
-        disableAutoPan:true
-      })
-      infoWindow.open(map,marker)
-    }
-    // map.setCenter(pos)
-  }
   // window.google.maps.event.addListener(Marker,'click',function(){infoWindow.open(map,Marker)})
 
   useEffect(() => {
       initMap();
-      eqfeed_callback();
+    //   eqfeed_callback();
     // initMap()
     // map.setCenter(pos)
   });
