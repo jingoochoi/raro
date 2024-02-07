@@ -1,2 +1,2 @@
 #map img{background-color: #ffffff33;}
-/* .gm-style>div>div>div>div>div:nth-child(1):after{content: '▼';display: block;position: absolute;left: 150%;} */
+.gm-style>div>div:nth-child(2)>div>div>div::after{content: '▼';display: block;position: absolute;left: 40%;top: 80%;z-index: 333;}
