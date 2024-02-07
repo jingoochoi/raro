@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect } from 'react';
 // import '../css/map.css'
 // import mapo from '../data/data.json'
 // import { conx } from './ctxt';
@@ -11,7 +11,7 @@ export function Map() {
     let response;
     let latitude;
     let longitude;
-    const [econ,setEcon]=useState(null);
+    let econ;
     // const myco=useContext(conx)
 
     const initMap = useCallback(() => {
@@ -63,12 +63,12 @@ export function Map() {
           map.controls[window.google.maps.ControlPosition.LEFT_TOP].push(clearButton);
           map.controls[window.google.maps.ControlPosition.LEFT_TOP].push(instructionsElement);
           map.controls[window.google.maps.ControlPosition.LEFT_TOP].push(responseDiv);
-          marker = new window.google.maps.Marker({
-            map,
-            draggable:false,
-            icon:`https://openweathermap.org/img/wn/${econ}.png`
-          });
-          console.log(econ)
+          // marker = new window.google.maps.Marker({
+          //   map,
+          //   draggable:false,
+          //   icon:`https://openweathermap.org/img/wn/${econ}.png`
+          // });
+          // console.log(econ)
           map.addListener("click", (e) => {
             geocode({ location: e.latLng });
           });
@@ -78,14 +78,14 @@ export function Map() {
           clearButton.addEventListener("click", () => {
             clear();
           });
-          clear();
+          // clear();
     }, []);
       function clear() {
         marker.setMap(null);
         responseDiv.style.display = "none";
       }
       function geocode(request) {
-        clear();
+        // clear();
         geocoder
           .geocode(request)
           .then((result) => {
@@ -95,17 +95,23 @@ export function Map() {
             map.setCenter(results[0].geometry.location);
             // map.setOptions({zoom:13})
             // map=new window.google.maps.MapO
-            marker.setPosition(results[0].geometry.location);
-            marker.setMap(map);
+            
             let loca=JSON.stringify(results[0].geometry.location)
             latitude=loca.split(':')[1].split(',')[0]
             longitude=loca.split(':')[2].split('}')[0]
             // console.log(latitude)
             // console.log(longitude)
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=current&appid=a0b75def9203ad25b02cc52c590183b4`).then(a=>a.json()).then(b=>{
-                let bb=b.weather[0].icon
-                setEcon(bb)
-                // console.log(econ)
+                econ=b.weather[0].icon
+                // setEcon(bb)
+                console.log(econ)
+                marker = new window.google.maps.Marker({
+                  map,
+                  draggable:false,
+                  icon:`https://openweathermap.org/img/wn/${econ}.png`
+                });
+                marker.setPosition(results[0].geometry.location);
+            marker.setMap(map);
             })
             responseDiv.style.display = "none";
             response.innerText = JSON.stringify(result, null, 2);
