@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useCallback, useEffect } from 'react';
-// import '../css/map.css'
+import '../css/map.css'
 // import mapo from '../data/data.json'
 // import { conx } from './ctxt';
 export function Map() {
@@ -104,14 +104,16 @@ export function Map() {
             fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&exclude=current&appid=a0b75def9203ad25b02cc52c590183b4`).then(a=>a.json()).then(b=>{
                 econ=b.weather[0].icon
                 // setEcon(bb)
-                console.log(econ)
+                // console.log(b)
                 marker = new window.google.maps.Marker({
+                  position:{lat:Number(b.coord.lat),lng:Number(b.coord.lon)},
                   map,
                   draggable:false,
-                  icon:`https://openweathermap.org/img/wn/${econ}.png`
+                  icon:`https://openweathermap.org/img/wn/${econ}.png`,
+                  anchorPoint:new window.google.maps.Point(0,1000)
                 });
-                marker.setPosition(results[0].geometry.location);
-            marker.setMap(map);
+                // marker.setPosition(results[0].geometry.location);
+            // marker.setMap(map);
             })
             responseDiv.style.display = "none";
             response.innerText = JSON.stringify(result, null, 2);
