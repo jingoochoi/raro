@@ -4,6 +4,7 @@ import '../css/map.css'
 // import mapo from '../data/data.json'
 // import { conx } from './ctxt';
 export function Map() {
+    let pos;
     let map;
     let marker;
     let geocoder;
@@ -15,6 +16,40 @@ export function Map() {
     // const myco=useContext(conx)
 
     const initMap = useCallback(() => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            // eqfeed_callback()
+            pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            // infoWindow.setPosition(pos);
+            // eqfeed_callback()
+            map.setCenter(pos);
+          },
+          () => {
+            handleLocationError(true);
+          },{enableHighAccuracy:true}
+        );
+      } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false);
+      }
+      map=new window.google.maps.Map(document.querySelector('#map'), {
+        center: { lat: -34.397, lng: 150.644 },
+        zoom: 13,
+      });
+      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        alert(browserHasGeolocation? "Error: The Geolocation service failed.": "Error: Your browser doesn't support geolocation.")
+        // infoWindow.setPosition(pos);
+        // infoWindow.setContent(
+        //   browserHasGeolocation
+        //     ? "Error: The Geolocation service failed."
+        //     : "Error: Your browser doesn't support geolocation."
+        // );
+        // infoWindow.open(map);
+      }
         map = new window.google.maps.Map(document.getElementById("map"), {
             zoom: 15,
             center: { lat: 37.397, lng: 127.644 },
