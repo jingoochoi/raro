@@ -7,7 +7,7 @@ import { conx } from './module/ctxt';
 import { Header } from './layout/Header';
 import { Main } from './layout/Main';
 function App() {
-  const[mode,setMode]=useState('game')
+  const[mode,setMode]=useState('pic')
   const chan=(a)=>{
     setMode(a)
   }
