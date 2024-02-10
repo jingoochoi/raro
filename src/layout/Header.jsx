@@ -1,8 +1,15 @@
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { conx } from "../module/ctxt"
 import '../css/header.css'
+import $ from 'jquery'
 export function Header() {
     const ctxt=useContext(conx)
+    useEffect(()=>{
+        $('.li').first().addClass('on')
+        $('.li').on('click',function () {
+            $(this).addClass('on').siblings().removeClass('on')
+        })
+    },[])
     return(
         <>
             <div className="menu" style={{display:'flex',gap:'30px',justifyContent:'center',alignItems:'center',height:'10vh'}}>
