@@ -1,4 +1,6 @@
-.li:hover{background-color: gold;}
+.li:nth-child(1):hover{background-color: pink;}
+.li:nth-child(2):hover{background-color: lightgreen;}
+.li:nth-child(3):hover{background-color: lightblue;}
 .li:nth-child(1).on{background-color: pink;}
 .li:nth-child(2).on{background-color: lightgreen;}
 .li:nth-child(3).on{background-color: lightblue;}

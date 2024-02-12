@@ -166,8 +166,7 @@ export function Map() {
     return(
         <>
             <div className="mapx" style={{backgroundColor:'lightgreen',height:'80vh'}}>
-            <h1 style={{textAlign:'center',margin:0}}>GEOCODE</h1>
-            <h3 style={{display:'block',textAlign:'center'}}>※입력 후 Find 버튼을 클릭해주세요. 엔터키는 무효합니다.※</h3>
+            <h1 style={{textAlign:'center',margin:0,paddingTop:'10vh'}}>CONTACT</h1>
             <div id="map" style={{width:'300px',height:'300px',margin:'0 auto'}}></div>
             {/* <button className='button-primary bottom' onClick={shar}>Share</button> */}</div>
         </>
