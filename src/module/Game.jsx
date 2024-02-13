@@ -13,7 +13,7 @@ export function Game() {
             $('.enum').css({opacity:0})
             return
         }
-        demo.current=Math.ceil(Math.random()*2+1)
+        demo.current=Math.ceil(Math.random()*3)
         $('.enum').css({opacity:1}).find('span').text(demo.current)
         init.current=init.current+Number($('.enum span').text())
         $('.nb').text(init.current)
