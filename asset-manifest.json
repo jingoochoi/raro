@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/raro/static/css/main.43574bd2.css",
-    "main.js": "/raro/static/js/main.2f10e5bb.js",
+    "main.css": "/raro/static/css/main.d56114b9.css",
+    "main.js": "/raro/static/js/main.711227cd.js",
     "static/js/592.eeec881b.chunk.js": "/raro/static/js/592.eeec881b.chunk.js",
     "index.html": "/raro/index.html",
-    "main.43574bd2.css.map": "/raro/static/css/main.43574bd2.css.map",
-    "main.2f10e5bb.js.map": "/raro/static/js/main.2f10e5bb.js.map",
+    "main.d56114b9.css.map": "/raro/static/css/main.d56114b9.css.map",
+    "main.711227cd.js.map": "/raro/static/js/main.711227cd.js.map",
     "592.eeec881b.chunk.js.map": "/raro/static/js/592.eeec881b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.43574bd2.css",
-    "static/js/main.2f10e5bb.js"
+    "static/css/main.d56114b9.css",
+    "static/js/main.711227cd.js"
   ]
 }
