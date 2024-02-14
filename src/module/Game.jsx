@@ -33,7 +33,7 @@ export function Game() {
     }
     return(
         <>
-            <div className="game" style={{backgroundColor:'lightblue',paddingTop:'10vh',fontSize:'30px',height:'70vh'}}>
+            <div className="game" style={{backgroundColor:'lightblue',paddingTop:'5vh',fontSize:'30px',height:'70vh'}}>
             <div className="evil" style={{textAlign: 'center',backgroundColor:'black',color:'white',width:'300px',height:'200px',margin:'0 auto',position:'relative',display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
         <div className="etit">ENEMY</div>
         <div className="enum" style={{opacity: 0}}>+<span></span></div>
@@ -41,7 +41,7 @@ export function Game() {
     <div className="nb" style={{textAlign: 'center',marginTop: '10px'}}>0</div>
     <div className="mymy" style={{textAlign: 'center',margin:'10px auto',backgroundColor:'pink',width:'300px',height:'200px',display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
         <div className="mtit">ME</div>
-        <div className="btns" style={{display:'flex',justifyContent:'center',gap:'30px',paddingBottom:'10px'}}>
+        <div className="btns" style={{display:'flex',justifyContent:'space-evenly',paddingBottom:'10px'}}>
             <button style={{cursor: 'pointer'}} onClick={()=>clft(1)}>+1</button>
             <button style={{cursor: 'pointer'}} onClick={()=>clft(2)}>+2</button>
             <button style={{cursor: 'pointer'}} onClick={()=>clft(3)}>+3</button>
