@@ -33,7 +33,7 @@ export function Game() {
     }
     return(
         <>
-            <div className="game" style={{backgroundColor:'lightblue',paddingTop:'5vh',fontSize:'30px',height:'70vh'}}>
+            <div className="game" style={{backgroundColor:'lightblue',paddingTop:'5vh',fontSize:'30px',height:'75vh'}}>
             <div className="evil" style={{textAlign: 'center',backgroundColor:'black',color:'white',width:'300px',height:'200px',margin:'0 auto',position:'relative',display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
         <div className="etit">ENEMY</div>
         <div className="enum" style={{opacity: 0}}>+<span></span></div>
