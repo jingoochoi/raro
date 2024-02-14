@@ -10,6 +10,7 @@ export function Game() {
         $('.nb').text(init.current)
         if (init.current>30) {
             $('.sult').html(`T.T<br>YOU LOSE`)
+            $('.sult').css({display:'block'})
             $('.enum').css({opacity:0})
             return
         }
@@ -19,6 +20,7 @@ export function Game() {
         $('.nb').text(init.current)
         if (init.current>30) {
             $('.sult').html(`🎉YEAH🎉<br>YOU WIN`)
+            $('.sult').css({display:'block'})
             return
         }
         
@@ -26,6 +28,7 @@ export function Game() {
     }
     const load=()=>{
         $('.sult').text('')
+        $('.sult').css({display:'none'})
         init.current=0
         demo.current=0
         $('.nb').text('0')
