@@ -41,8 +41,8 @@ export function Game() {
         <div className="etit">ENEMY</div>
         <div className="enum" style={{opacity: 0}}>+<span></span></div>
     </div>
-    <div className="nb" style={{textAlign: 'center',marginTop: '10px'}}>0</div>
-    <div className="mymy" style={{textAlign: 'center',margin:'10px auto',backgroundColor:'pink',width:'300px',height:'200px',display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
+    <div className="nb" style={{textAlign: 'center',marginTop: '1vh',height:'5.5vh'}}>0</div>
+    <div className="mymy" style={{textAlign: 'center',margin:'1vh auto',backgroundColor:'pink',width:'300px',height:'200px',display:'flex',flexDirection:'column',justifyContent:'space-evenly'}}>
         <div className="mtit">ME</div>
         <div className="btns" style={{display:'flex',justifyContent:'space-evenly'}}>
             <button style={{cursor: 'pointer'}} onClick={()=>clft(1)}>+1</button>
