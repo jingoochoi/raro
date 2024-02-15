@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import '../css/game.css'
 import $ from 'jquery'
 export function Game() {
@@ -26,6 +26,19 @@ export function Game() {
         
         setRdnb(Math.random())
     }
+    useEffect(()=>{
+        if(window.matchMedia('(max-width:600px)').matches){
+            const sultElement = document.querySelector('.sult');
+      const mymyElement = document.querySelector('.mymy');
+      
+      if (sultElement && mymyElement) {
+        const mymyOffsetTop = mymyElement.offsetTop;
+        sultElement.style.top = `${mymyOffsetTop-30}px`;
+        console.log(mymyOffsetTop);
+        console.log(sultElement.offsetTop);
+      }
+        }
+    },[])
     const load=()=>{
         $('.sult').text('')
         $('.sult').css({display:'none'})
