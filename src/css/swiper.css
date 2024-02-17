@@ -3,7 +3,7 @@ body {
   position: relative;
   height: 80vh;
 }
-
+:root{--swiper-navigation-size:30px}
 body {
   /* background: #eee; */
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -40,3 +40,6 @@ body {
   margin-left: auto;
   margin-right: auto;
 }
+.swiper-button-prev,.swiper-button-next{background-color: white;width: 44px;height: 44px;;border-radius: 50%;}
+.swiper-button-next::after{width: 15px;height: 30px;}
+.swiper-button-prev::after{width: 17px;height: 30px;}
