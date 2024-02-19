@@ -10,7 +10,7 @@ export function Game() {
         $('.nb').text(init.current)
         if (init.current>30) {
             $('.sult').html(`T.T<br>YOU LOSE`)
-            $('.etit').html(`◠  DEMON ◠`)
+            $('.etit').html(`✨ DEMON    ✨`)
             $('.sult').css({display:'block'})
             $('.enum').css({opacity:0})
             return
