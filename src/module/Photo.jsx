@@ -7,6 +7,7 @@ import '../css/swiper.css'
 export function Photo() {
     return(
         <>
+          <div className="foto" style={{backgroundColor:'pink'}}>
             <Swiper
         slidesPerView={1}
         spaceBetween={30}
@@ -23,7 +24,7 @@ export function Photo() {
         <SwiperSlide style={{backgroundColor:'yellow'}}>Slide 3</SwiperSlide>
         <SwiperSlide style={{backgroundColor:'lightgreen'}}>Slide 4</SwiperSlide>
         <SwiperSlide style={{backgroundColor:'lightblue'}}>Slide 5</SwiperSlide>
-      </Swiper>
+      </Swiper></div>
         </>
     )
 }
