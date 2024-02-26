@@ -9,7 +9,7 @@ export function Game() {
         init.current=init.current+nber
         $('.nb').text(init.current)
         if (init.current>30) {
-            $('.sult').html(`T.T<br>YOU LOSE<br>(click here)`)
+            $('.sult').html(`T.T<br>YOU LOSE<br><br>(click here)`)
             $('.etit').html(`✨ DEMON    ✨`)
             $('.sult').css({display:'block'})
             $('.enum').css({opacity:0})
@@ -21,7 +21,7 @@ export function Game() {
         init.current=init.current+Number($('.enum span').text())
         $('.nb').text(init.current)
         if (init.current>30) {
-            $('.sult').html(`🎉YEAH🎉<br>YOU WIN<br>(click here)`)
+            $('.sult').html(`🎉YEAH🎉<br>YOU WIN<br><br>(click here)`)
             $('.etit').html(`🔥 DEMON    🔥`)
             $('.sult').css({display:'block'})
             $('button').css({cursor:'default'})
